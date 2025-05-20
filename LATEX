@@ -1,0 +1,311 @@
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{anyfontsize}
+\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{enumitem}
+
+\geometry{left=3cm, right=2cm, top=2cm, bottom=2cm}
+\setlength{\parindent}{1.25cm}
+\renewcommand{\figurename}{Рисунок}
+\setlist[enumerate]{leftmargin=*,itemindent=1.25cm}
+
+\begin{document}
+
+\begin{center}
+    \begin{spacing}{1.5}
+        \textbf{Министерство образования Республики Беларусь}
+        
+        \vspace{0.5cm}
+        
+        \textbf{Учреждение образования} \\
+        \textbf{БЕЛОРУССКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ} \\
+        \textbf{ИНФОРМАТИКИ И РАДИОЭЛЕКТРОНИКИ}
+        
+        \vspace{2cm}
+        
+        \textbf{Факультет Информационных технологий и управления} \\
+        \textbf{Кафедра Интеллектуальных информационных технологий}
+        
+        \vspace{3cm}
+        
+        {\fontsize{16}{18}\selectfont \textbf{РАСЧЕТНАЯ РАБОТА}} \\
+        по дисциплине «Представление и обработка данных в интеллектуальных системах» \\
+        на тему \\
+        {\fontsize{14}{16}\selectfont \textbf{Нахождение длины наименьшего цикла в орграфе}}
+        
+        \vspace{3cm}
+        
+        \begin{flushright}
+            \begin{minipage}{0.5\textwidth}
+                Выполнил: \hfill М. А. Сухоруков \\
+                Студент группы 421701 \\
+                Проверил: \hfill Н. В. Малиновская
+            \end{minipage}
+        \end{flushright}
+        
+        \vfill
+        
+        \textbf{Минск 2025}
+    \end{spacing}
+\end{center}
+
+\newpage
+
+\section*{1 ВВЕДЕНИЕ}
+
+\textbf{Цель:} Получить навыки формализации и обработки информации с использованием семантических сетей.
+
+\textbf{Задача:} Найти обхват графа.
+
+\section*{2 СПИСОК ПОНЯТИЙ}
+
+\begin{enumerate}
+    \item \textbf{Ориентированный граф} — граф, рёбрам которого присвоено направление. Направленные рёбра именуются также дугами, а в некоторых источниках и просто рёбрами:
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{image.png} 
+        \caption{Ориентированный граф}
+        \label{fig:directed_graph}
+    \end{figure}
+    
+    \item \textbf{Обхват графа} — Длина наименьшего цикла в графе. Если циклов нет, обхват считается бесконечным.
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{image2.png}
+        \caption{Обхват графа}
+        \label{fig:girth_example}
+    \end{figure}
+\end{enumerate}
+\section*{3 ТЕСТОВЫЕ ПРИМЕРЫ}
+
+Во всех тестах графы будут приведены в сокращенной форме со скрытыми ролями элементов графа.
+
+\subsection*{3.1 Тест 1}
+
+Необходимо найти обхват орграфа.
+
+\textbf{Вход:}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image3.png} 
+    \caption{Вход теста 1}
+    \label{fig:test1_input}
+\end{figure}
+
+\textbf{Выход:}
+Будет выведен данный ориентированный граф(пустота, так как тут нет циклов):
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image5.png} 
+    \caption{Выход теста 1}
+    \label{fig:test1_output}
+\end{figure}
+
+\newpage
+
+\subsection*{3.2 Тест 2}
+
+Необходимо найти обхват орграфа.
+
+\textbf{Вход:}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image6.png} 
+    \caption{Вход теста 2}
+    \label{fig:test2_input}
+\end{figure}
+
+\textbf{Выход:}
+Будет выведен данный ориентированный граф:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image7.png} 
+    \caption{Выход теста 2}
+    \label{fig:test2_output}
+\end{figure}
+
+\newpage
+
+\subsection*{3.3 Тест 3: Поиск обхвата ориентированного графа}
+
+\textbf{Постановка задачи:}
+Необходимо найти обхват (длину минимального цикла) для заданного ориентированного графа.
+
+\textbf{Входные данные:}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{image8.png}
+\caption{Ориентированный граф для теста 3}
+\label{fig:test3_input}
+\end{figure}
+
+\textbf{Ожидаемый результат:}
+Алгоритм должен обнаружить минимальный цикл и вернуть его длину.
+
+\textbf{Выходные данные:}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{image9.png}
+\caption{Результат обработки теста 3 (минимальный цикл)}
+\label{fig:test3_output}
+\end{figure}
+
+\newpage
+
+\subsection*{3.4 Тест 4: Поиск обхвата ориентированного графа}
+
+\textbf{Постановка задачи:}
+Необходимо найти обхват другого ориентированного графа.
+
+\textbf{Входные данные:}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{image10.png}
+\caption{Ориентированный граф для теста 4}
+\label{fig:test4_input}
+\end{figure}
+
+\textbf{Ожидаемый результат:}
+Алгоритм должен найти и визуализировать минимальный цикл в графе.
+
+\textbf{Выходные данные:}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{image11.png}
+\caption{Результат обработки теста 4 (найденный цикл)}
+\label{fig:test4_output}
+\end{figure}
+
+\newpage
+
+\section*{4 ПРИМЕР РАБОТЫ АЛГОРИТМА В СЕМАНТИЧЕСКОЙ ПАМЯТИ}
+
+\subsection*{4.1 Краткое описание алгоритма поиска обхвата графа}
+
+\begin{enumerate}
+    \item Для каждой вершины графа выполняем поиск в ширину (BFS), чтобы найти кратчайшие пути до других вершин
+    \item Во время обхода отслеживаем расстояния от стартовой вершины и родительские вершины
+    \item При обнаружении ребра, ведущего в уже посещенную вершину (которая не является родительской), находим цикл
+    \item Вычисляем длину найденного цикла как сумму расстояний до двух вершин цикла плюс 1 (само ребро)
+    \item Запоминаем минимальную длину цикла среди всех найденных
+    \item Если циклов не обнаружено, возвращаем -1
+\end{enumerate}
+
+Алгоритм работает за время O(V*(V+E)), где V - количество вершин, E - количество ребер. Основные особенности:
+\begin{itemize}
+    \item Использует BFS для нахождения кратчайших путей
+    \item Обнаруживает циклы через анализ "обратных" ребер
+    \item Подходит для неориентированных графов
+    \item Находит именно минимальный цикл в графе
+
+    \newpage
+    
+\subsection*{4.2 Демонстрация работы алгоритма поиска обхвата графа}
+
+\begin{enumerate}
+\item \textbf{Начинаем обход с вершины 0}, инициализируем расстояния и родителей (рис. 4.1):
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image12.png}
+    \caption{Инициализация обхода из вершины 0}
+    \label{fig:step1}
+\end{figure}
+
+\item \textbf{Посещаем соседей вершины 0} (вершину 1), обновляем расстояния (рис. 4.2):
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image13.png}
+    \caption{Обход соседей вершины 0}
+    \label{fig:step2}
+\end{figure}
+\newpage
+\item \textbf{Обнаруживаем цикл} при переходе из вершины 3 в вершину 0. Теперь u = 1 (извлекаем из очереди). Соседи 1: [2, 4] (1 → 2 и 1 → 4). Обрабатываем v = 2 (рис. 4.3):
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image14.png}
+    \caption{Обнаружение цикла и обработка вершины 2}
+    \label{fig:step3}
+\end{figure}
+
+\item \textbf{Обрабатываем v = 4}:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image15.png}
+    \caption{Обработка вершины 4}
+    \label{fig:step4}
+\end{figure}
+
+\item \textbf{Обрабатываем v = 3}:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image16.png}
+    \caption{Обработка вершины 3}
+    \label{fig:step5}
+\end{figure}
+\newpage
+\item \textbf{Обрабатываем v = 5}:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image17.png}
+    \caption{Обработка вершины 5}
+    \label{fig:step6}
+\end{figure}
+
+\item \textbf{Завершающий этап}: Аналогичные шаги выполняются для start = 1, 2, 3, 4, 5. После выводится наименьший цикл. В данном графе будет такой вывод (4):
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image.png}
+    \caption{Результат работы алгоритма (минимальный цикл длины 4)}
+    \label{fig:result}
+\end{figure}
+\end{enumerate}
+\subsection*{4.3 Ключевые моменты реализации}
+\begin{itemize}
+    \item Для каждой вершины выполняется независимый BFS
+    \item Массивы \texttt{dist} и \texttt{parent} переинициализируются для каждого нового старта
+    \item При обнаружении ребра в уже посещенную вершину (кроме родительской) вычисляется длина цикла
+    \item Переменная \texttt{girth} сохраняет минимальную найденную длину
+\end{itemize}
+
+\newpage
+
+\section*{5 ЗАКЛЮЧЕНИЕ}
+
+В ходе выполнения расчетной работы была успешно решена задача нахождения длины наименьшего цикла в ориентированном графе. Мы детально изучили теоретические основы работы с графами, включая понятия ориентированного графа и его обхвата. Для решения задачи был реализован алгоритм на основе поиска в ширину (BFS), который продемонстрировал свою эффективность при обнаружении минимальных циклов.
+
+Разработанный алгоритм был тщательно протестирован на различных тестовых примерах, что подтвердило его корректность и надежность. Особое внимание уделялось обработке граничных случаев, включая графы без циклов. В результате была достигнута основная цель работы - создание эффективного инструмента для анализа циклической структуры ориентированных графов.
+
+Полученные результаты имеют практическую ценность и могут быть применены в различных областях, включая анализ сетевых структур, проектирование маршрутов и исследование зависимостей в сложных системах. Дальнейшее развитие работы может включать оптимизацию алгоритма для работы с графами большой размерности и расширение функциональности для решения смежных задач теории графов.
+\newpage
+\section*{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+
+\begin{enumerate}
+\item Дунаев А. Использование теории графов для распознавания образов / А. Дунаев. — М.: Абрис, 2021. — 456 с.
+
+\item Кузнецов О.П., Адельсон-Вельский Г.М. Дискретная математика для инженера. — М.: Энергоатомиздат, 1988. — 480 с.
+
+\item Лахуркин Д.А. Руководство к выполнению расчетной работы по курсам ОИИ и ППвИС. — Минск: БГУИР, 2013.
+
+\item Орс О. Теория графов. — М.: Наука, 1980. — 336 с.
+\end{enumerate}
+
+\end{document}
